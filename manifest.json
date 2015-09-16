@@ -1,0 +1,54 @@
+{
+    "manifest_version": 2,
+    "name": "LinkTip",
+    "version": "0.1.1",
+    "description": "Show Me The Link .",
+    "icons": {
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+    },
+    "background": {
+        "scripts": [
+            "lib/jquery.min.js",
+            "background_scripts/commands.js"
+        ]
+    },
+    "options_page": "pages/options.html",
+    "permissions": [
+        "http://*/*",
+        "https://*/*",
+        "storage"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "http://*/*",
+                "https://*/*"
+            ],
+            "js": [
+                "lib/jquery.min.js",
+                "content_scripts/link-tip.js"
+            ],
+            "css": [
+                "lib/hint.min.css",
+                "content_scripts/link-tip.css"
+            ],
+            "run_at": "document_end",
+            "all_frames": true
+        }
+    ],
+    "commands": {
+        "toggle-link-tip": {
+            "suggested_key": {
+                "default": "Alt + E"
+            },
+            "description": "toggle-link-tip"
+        }
+    },
+    "web_accessible_resources": [
+        "pages/notification.html",
+        "lib/hint.min.css",
+        "content_scripts/link-tip.css"
+    ]
+}

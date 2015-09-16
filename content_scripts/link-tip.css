@@ -1,0 +1,19 @@
+div.link-tip-notification {
+    position: fixed;
+    bottom: 1px;
+    right: 200px;
+    display: block;
+    color: black;
+    background-color: #ebebeb;
+    width: auto;
+    height: auto;
+    max-width: 200px;
+    max-height: 20px;
+    overflow: hidden;
+    text-align: center;
+    padding: 2px 4px;
+    /*margin: 0;*/
+    border: 1px solid #b3b3b3;
+    border-bottom: 0;
+    font-size: 10px;
+}
