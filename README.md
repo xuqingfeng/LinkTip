@@ -10,4 +10,5 @@ use <kbd>Alt</kbd> + <kbd>E</kbd> to toggle.
 
 ###TODO
 
+- [ ] optioins page
 - [ ] shadow dom

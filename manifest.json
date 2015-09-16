@@ -47,7 +47,6 @@
         }
     },
     "web_accessible_resources": [
-        "pages/notification.html",
         "lib/hint.min.css",
         "content_scripts/link-tip.css"
     ]
