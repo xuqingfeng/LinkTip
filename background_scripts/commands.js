@@ -7,7 +7,6 @@ chrome.storage.local.set({'activated': false});
 chrome.commands.onCommand.addListener(function (command) {
 
     if ('toggle-link-tip' == command) {
-        console.log('receive command');
         chrome.storage.local.get('activated', function (items) {
             // put in callback.
             var message = {};
