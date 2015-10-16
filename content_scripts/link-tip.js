@@ -7,6 +7,9 @@ var linkTipHintHTML = "<style type='text/css' id='link-tip-hint'>@import url(" +
 var linkTipNotificationHTML = "<div class='link-tip-notification'>LinkTip Is Activated .</div>";
 
 $('body').append("<div id='link-tip-area'></div>");
+// use shadow dom
+var linkTipArea = document.querySelector('#link-tip-area');
+var shadowRoot = linkTipArea.createShadowRoot();
 
 var linksIgnored = [
     "javascript",
@@ -21,6 +24,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
         if (request.activated) {
 
             $('#link-tip-area').empty();
+            shadowRoot.innerHTML = '';
 
             chrome.storage.local.set({'activated': false});
 
@@ -35,9 +39,11 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 
         } else {
 
-            $('#link-tip-area').append(linkTipStyleHTML);
-            $('#link-tip-area').append(linkTipHintHTML);
-            $('#link-tip-area').append(linkTipNotificationHTML);
+            shadowRoot.innerHTML = linkTipStyleHTML + linkTipHintHTML + linkTipNotificationHTML;
+
+            // $('#link-tip-area').append(linkTipStyleHTML);
+            // $('#link-tip-area').append(linkTipHintHTML);
+            // $('#link-tip-area').append(linkTipNotificationHTML);
 
             chrome.storage.local.set({'activated': true});
 
